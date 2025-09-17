@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import ShopHeader from "@/components/shop-header";
 import ProductCard from "@/components/product-card";
 import { useEffect } from "react";
-import { getApiCall } from "@/lib/utils";
 
 // Mock featured collections
 const featuredCollections = [
@@ -126,19 +125,6 @@ const featuredCategories = [
 ];
 
 export default function Home() {
-  useEffect(() => {
-    const initializeApp = async () => {
-      try {
-        // Proceed with health check if env vars are loaded
-        const healthData = await getApiCall("/health");
-        console.log("Health API Response:", healthData);
-      } catch (error) {
-        console.error("Initialization error:", error);
-      }
-    };
-    initializeApp();
-  }, []);
-
   return (
     <main className="min-h-screen">
       <ShopHeader />
